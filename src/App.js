@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+
+import { ThemeProvider } from 'styled-components';
 import './App.css';
+import CompoA from './components/CompoA';
+import CompoB from './components/CompoB';
+import GlobalStyle from './styles/GlobalStyle';
+
+const theme = {
+  colors: {
+    primary : "blue",
+    secondary : "red",
+    accent : "hotpink"
+  },
+
+  fonts: {
+    h1size : "55px",
+    h2size : "40px"
+  }
+}
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div>
+          <GlobalStyle />
+          <CompoA />
+          <CompoB />
+      </div>
+    </ThemeProvider>
   );
 }
 
